@@ -1,4 +1,4 @@
-include EY::Serverside::LoggedOutput
+extend EY::Serverside::LoggedOutput
 
 Dir.chdir(release_path) do
   require "rubygems"
