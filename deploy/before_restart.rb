@@ -8,5 +8,5 @@ Dir.chdir(release_path) do
 
   # You can also use post, put, delete, head, options in the same fashion
   response = HTTParty.get('http://twitter.com/statuses/public_timeline.json')
-  [response.body, response.code, response.message, response.headers.inspect].each { |m| info(m) }
+  [response.body, response.code, response.message, response.headers.inspect].each { |m| info(m.to_s) }
 end
