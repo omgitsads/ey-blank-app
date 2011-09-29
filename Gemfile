@@ -18,7 +18,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'httparty'
+
+group :deploy do
+  gem 'httparty'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -1,6 +1,7 @@
 Dir.chdir(release_path) do
   require "rubygems"
   require "bundler/setup"
+  # Bundler.setup(:deploy)
 
   require "httparty"
 
