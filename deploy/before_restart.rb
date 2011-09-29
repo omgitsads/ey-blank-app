@@ -10,6 +10,6 @@ Dir.chdir(release_path) do
   # Do something with response
 end
 
-File.open("/home/deploy-config.json", "w") do |f|
+File.open("/home/deploy/deploy-config.json", "w") do |f|
   f.write("Deploying User: #{deploy_user}") if deploy_user
 end
