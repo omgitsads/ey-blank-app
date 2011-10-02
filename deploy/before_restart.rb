@@ -1,7 +1,7 @@
 Dir.chdir(release_path) do
-  require "rubygems"
-  require "bundler"
-  Bundler.setup(:deploy)
+  require File.expand_path(File.join(File.dirname(__FILE__), "deploy", "helpers"))
+
+  make_gems_available
 
   require "httparty"
 
