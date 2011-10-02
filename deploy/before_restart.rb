@@ -1,8 +1,7 @@
-Dir.chdir(release_path) do
+on_app_master do
   require File.expand_path(File.join(File.dirname(__FILE__), "deploy", "helpers"))
 
   make_gems_available
-
   require "httparty"
 
   # You can also use post, put, delete, head, options in the same fashion
@@ -12,4 +11,3 @@ Dir.chdir(release_path) do
     f.write response.inspect
   end
 end
-
