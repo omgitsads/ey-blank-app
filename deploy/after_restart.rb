@@ -7,6 +7,6 @@ on_app_master do
       :gem_path => Gem.path,
       :gem_config => Gem.configuration
     }
-    f.write(setting.to_json)
+    f.write(settings.to_json)
   end
 end
