@@ -1,0 +1,2 @@
+module NginxLocationTestHelper
+end
