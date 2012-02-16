@@ -116,6 +116,8 @@ GEM
     uglifier (1.2.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    unicorn (1.1.7)
+      rack
     vegas (0.1.11)
       rack (>= 1.0.0)
 
@@ -132,3 +134,4 @@ DEPENDENCIES
   resque
   sass-rails (~> 3.1.0)
   uglifier
+  unicorn
