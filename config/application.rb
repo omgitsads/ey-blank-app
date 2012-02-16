@@ -9,7 +9,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-require 'lib/middleware_start'
+require './lib/middleware_start'
 
 module Blank
   class Application < Rails::Application
