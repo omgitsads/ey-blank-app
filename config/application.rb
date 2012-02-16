@@ -10,7 +10,7 @@ if defined?(Bundler)
 end
 
 require './lib/middleware_start'
-require 'rack/cache'
+#require 'rack/cache'
 
 module Blank
   class Application < Rails::Application
@@ -48,7 +48,7 @@ module Blank
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.middleware.insert_before Rack::Cache, NewRelic::MiddlewareStart
+    config.middleware.insert_before Rack::Lock, NewRelic::MiddlewareStart
 
   end
 end
