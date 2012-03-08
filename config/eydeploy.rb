@@ -54,9 +54,9 @@ def compile_assets
 end
 
 def assets_changed?
-  file = Tempfile.new('asset-changed') do
-    file.write(asset_check)
-  end
+  file = Tempfile.new('asset-changed')
+  file.write(asset_check)
+  file.close
 
   info "~> Wrote #{file.path}"
 
