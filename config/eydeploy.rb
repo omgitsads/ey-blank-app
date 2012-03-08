@@ -1,3 +1,5 @@
+require 'tempfile'
+
 asset_check = <<-ERB
 require 'digest/sha1'
 # Require the rails stack
@@ -39,8 +41,6 @@ else
   exit 0
 end
 ERB
-
-require 'erb'
 
 def compile_assets
   roles :app_master, :app, :solo do
