@@ -58,6 +58,8 @@ def assets_changed?
     file.write(asset_check)
   end
 
+  info "~> Wrote #{file.path}"
+
   begin
     run "ruby #{file.path}"
     return false
