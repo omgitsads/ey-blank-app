@@ -1,6 +1,6 @@
 require 'tempfile'
 
-asset_check = <<-ERB
+ASSET_CHECK = <<-STR
 require 'digest/sha1'
 # Require the rails stack
 require '/data/#{c.release_path}/config/environment'
@@ -40,7 +40,7 @@ if changed
 else
   exit 0
 end
-ERB
+STR
 
 def compile_assets
   roles :app_master, :app, :solo do
@@ -55,7 +55,7 @@ end
 
 def assets_changed?
   file = Tempfile.new('asset-changed')
-  file.write(asset_check)
+  file.write(ASSET_CHECK)
   file.close
 
   info "~> Wrote #{file.path}"
