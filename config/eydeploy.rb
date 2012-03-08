@@ -3,36 +3,38 @@ require 'tempfile'
 ASSET_CHECK = <<-STR
 require 'digest/sha1'
 # Require the rails stack
-require '#{c.release_path}/config/environment'
+Dir.chdir "#{c.release_path}" do
+  require '#{c.release_path}/config/environment'
 
-module Digest
-  class SHA1
-    def self.file(filename)
-      hasher = self.new
-      open(filename, "r") do |io|
-        hasher.update(io.readpartial(1024)) while (!io.eof)
+  module Digest
+    class SHA1
+      def self.file(filename)
+        hasher = self.new
+        open(filename, "r") do |io|
+          hasher.update(io.readpartial(1024)) while (!io.eof)
+        end
+        hasher
       end
-      hasher
     end
   end
-end
 
-CHECKSUM_MANIFEST = "#{c.shared_path}/config/asset-checksum.yml"
+  CHECKSUM_MANIFEST = "#{c.shared_path}/config/asset-checksum.yml"
 
-changed = false
-current_assets = File.exists?(CHECKSUM_MANIFEST) ? YAML.load_file(CHECKSUM_MANIFEST) : {}
+  changed = false
+  current_assets = File.exists?(CHECKSUM_MANIFEST) ? YAML.load_file(CHECKSUM_MANIFEST) : {}
 
-files = Dir[*Rails.application.config.assets.paths.map {|dir| dir + "/**/*"}]
+  files = Dir[*Rails.application.config.assets.paths.map {|dir| dir + "/**/*"}]
 
-assets = files.inject({}) do |checksums, f|
-  checksums[f] = Digest::SHA1.file(f).hexdigest
-  checksums
-end
+  assets = files.inject({}) do |checksums, f|
+    checksums[f] = Digest::SHA1.file(f).hexdigest
+    checksums
+  end
 
-changed = true unless current_assets.diff(assets).empty?
+  changed = true unless current_assets.diff(assets).empty?
 
-File.open(CHECKSUM_MANIFEST, "w") do |f|
-  f.write(assets.to_yaml)
+  File.open(CHECKSUM_MANIFEST, "w") do |f|
+    f.write(assets.to_yaml)
+  end
 end
 
 if changed
