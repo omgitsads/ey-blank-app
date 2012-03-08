@@ -26,6 +26,8 @@ gem 'newrelic_rpm'
 # Use unicorn as the web server
 gem 'unicorn'
 
+gem 'rails-backbone'
+
 # Deploy with Capistrano
 # gem 'capistrano'
 
