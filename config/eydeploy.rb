@@ -3,7 +3,7 @@ require 'tempfile'
 ASSET_CHECK = <<-STR
 require 'digest/sha1'
 # Require the rails stack
-require '/data/#{c.release_path}/config/environment'
+require '#{c.release_path}/config/environment'
 
 module Digest
   class SHA1
