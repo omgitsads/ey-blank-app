@@ -60,8 +60,8 @@ def assets_changed?
 
   begin
     run "ruby #{file.path}"
-    return true
-  rescue EY::Serverside::RemoteFailure
     return false
+  rescue EY::Serverside::RemoteFailure
+    return true
   end
 end
