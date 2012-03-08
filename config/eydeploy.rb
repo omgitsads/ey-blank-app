@@ -35,12 +35,12 @@ Dir.chdir "#{c.release_path}" do
   File.open(CHECKSUM_MANIFEST, "w") do |f|
     f.write(assets.to_yaml)
   end
-end
 
-if changed
-  exit 1
-else
-  exit 0
+  if changed
+    exit 1
+  else
+    exit 0
+  end
 end
 STR
 
