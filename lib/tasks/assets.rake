@@ -43,3 +43,10 @@ task "assets:changed" => :environment do
 
   exit 0 unless changed
 end
+
+namespace :assets do
+  task :precompile => :environment do
+    puts "Exiting with error!"
+    exit 1
+  end
+end
