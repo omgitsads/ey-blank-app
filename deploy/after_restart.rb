@@ -6,4 +6,4 @@ on_app_master do
   info "cd #{release_path} && bundle exec newrelic_cmd deployments -e #{node[:environment][:framework_env]} -r #{`cat REVISION`}"
 end
 
-run "ruby -e \"require 'pp'; pp ENV\""
+run "ruby -e \"$STDERR.puts ENV.inspect\""
