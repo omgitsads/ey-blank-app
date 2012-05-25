@@ -1,0 +1,6 @@
+#!/bin/sh
+<% @env_vars.each_pair do |k, v| %>
+export <%= k %>="<%= v %>"
+<% end %>
+
+exec "/usr/bin/ruby" "\$@"
