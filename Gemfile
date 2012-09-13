@@ -14,7 +14,7 @@ platforms :ruby do
   gem 'unicorn'
 end
 
-gem 'pg'
+#gem 'pg'
 
 gem 'json'
 gem 'resque'
