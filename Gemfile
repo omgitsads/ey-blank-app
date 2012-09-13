@@ -7,12 +7,12 @@ gem 'rails', '3.1.3'
 
 platforms :jruby do
   gem 'activerecord-jdbc-adapter', :require => false
-  gem 'jdbc-mysql'
+  gem 'jdbc-postgres'
 end
 
 platforms :ruby do
-  gem 'mysql2'
-gem 'unicorn'
+  gem 'pg'
+  gem 'unicorn'
 end
 
 gem 'json'
