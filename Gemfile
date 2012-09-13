@@ -27,7 +27,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'newrelic_rpm'
 gem 'ey_config'
 
 # Use unicorn as the web server
