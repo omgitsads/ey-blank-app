@@ -12,6 +12,7 @@ end
 
 platforms :ruby do
   gem 'mysql2'
+gem 'unicorn'
 end
 
 gem 'json'
@@ -30,7 +31,6 @@ gem 'newrelic_rpm'
 gem 'ey_config'
 
 # Use unicorn as the web server
-gem 'unicorn'
 
 #gem 'rails-backbone'
 
