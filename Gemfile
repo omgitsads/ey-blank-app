@@ -11,9 +11,10 @@ platforms :jruby do
 end
 
 platforms :ruby do
-  gem 'pg'
   gem 'unicorn'
 end
+
+gem 'pg'
 
 gem 'json'
 gem 'resque'
