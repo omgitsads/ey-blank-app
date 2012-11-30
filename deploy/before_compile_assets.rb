@@ -1,1 +1,1 @@
-info("compiling assets!")
+shell.info("compiling assets!")
