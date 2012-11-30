@@ -4,4 +4,5 @@
 # require_recipe 'cron'
 # require_recipe 'swap'
 # require_recipe 'encoding'
-require_recipe 'passenger-env'
+# require_recipe 'passenger-env'
+# require_recipe 'json-maint'

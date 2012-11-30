@@ -1,6 +1,6 @@
 #!/bin/sh
-<% @env_vars.each_pair do |k, v| %>
-export <%= k %>="<%= v %>"
+<% @apps.each do |app| %>
+source /data/<%= app %>/shared/config/env.custom
 <% end %>
 
 exec "/usr/bin/ruby" "\$@"

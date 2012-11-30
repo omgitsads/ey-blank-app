@@ -8,14 +8,18 @@ if ['solo', 'app', 'app_master'].include?(node[:instance_role])
     action :enable
   end
 
+
+
+  file "/tmp/something"
+
   template "/home/deploy/passenger_wrapper.sh" do
     owner   node[:owner_name]
     group   node[:owner_name]
     mode    0755
     source  "passenger_wrapper.sh.erb"
-    variables({:env_vars => {
-      :TEST => 'testing'
-    }})
+    variables(
+      :apps => node[:applications]
+    )
   end
 
   execute "Add passenger_ruby to stack.conf" do
