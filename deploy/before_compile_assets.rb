@@ -1,1 +1,1 @@
-$STDOUT.puts "compiling assets!"
+STDOUT.puts "compiling assets!"
