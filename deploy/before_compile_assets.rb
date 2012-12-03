@@ -1,1 +1,1 @@
-shell.status("compiling assets!")
+$STDOUT.puts "compiling assets!"
